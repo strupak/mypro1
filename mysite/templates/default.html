@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django recipe completed</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+  </head>
+  <body>
+<div class="container">
+<div class="jumbotron">
+<p class="lead text-center">
+{% if lang == "ru" %}
+Django установлен.<br/>
+Для запуска своего приложения необходимо:
+<ul>
+<li>Удалить файлы из директории {{ ddir }} и заменить их своим приложением</li>
+<li>В файлах конфигурации nginx и uwsgi (/etc/nginx/conf.d/django.conf , /etc/uwsgi.d/django.ini , /etc/uwsgi/app-enabled/django.ini (в зависимости от ОС)) заменить mysite на имя Вашего приложения(его директорию)</li>
+<li>Перезапустить nginx и uwsgi: service nginx restart ; service uwsgi restart</li>
+</ul>
+{% else %}
+Django installed.</br>
+For deploy Your application You need:
+<li>Remove all files from {{ ddir }} and put Your application there</li>
+<li>In config files (/etc/nginx/conf.d/django.conf , /etc/uwsgi.d/django.ini , /etc/uwsgi/app-enabled/django.ini (depends on OS)) replace mysite to Your application's name (dir name)</li>
+<li>Restart nginx and uwsgi: service nginx restart ; service uwsgi restart</li>
+{% endif %}
+</p>
+</div>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <title>Django Upload</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'resizer/style.css' %}" />
+    </head>
+    <body>
+        <!-- List of uploaded documents -->
+        {% if wer %}
+            <ul>
+                {% for document in wer %}
+                    <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No documents.</p>
+        {% endif %}
+        <div>
+            <!--<img src="{% static "/resizer/images/buklet-1.jpg" %}" /><img src="{% static "/resizer/images/buklet-2.jpg" %}" /><img src="{% static "/resizer/images/buklet-3.jpg" %}" /> -->
+        </div>
+        <a href="{% url 'resizer:upload' %}">Upload</a>
+    </body>
+</html>

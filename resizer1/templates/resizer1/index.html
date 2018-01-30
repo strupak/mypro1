@@ -1,0 +1,11 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'resizer1/style.css' %}" />
+
+{% block page %}
+    <article>
+        <h1>{{ article.article_title }}</h1>
+        <p>{{ article.article_content }}</p>
+    </article>
+{% endblock %}
+<img src="{% static "resizer1/images/1.jpg" %}" alt="My image"/>
